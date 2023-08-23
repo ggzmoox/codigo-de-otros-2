@@ -1,8 +1,15 @@
-var formulario = document.querySelector("#form")
+/* 
+EN TODO EL DOCUMENTO FALTAN MUCHOS PUNTO Y COMA  ;
+*/
+// el formulario estaba mal referenciado decia #form cuando deberia ser .formulario
+/* var formulario = document.querySelector("#form") */
+var formulario = document.querySelector(".formulario")
 
-formulario.onsubmit = function(e) {
+formulario.onSubmit = function(e) {
 
-  e.prevent();
+  // la funcion para prevenir es preventDefault no prevent
+  /* e.prevent() */
+  e.preventDefault()
   
   var n = formulario.elements[0]
   var e = formulario.elements[1]
@@ -19,7 +26,11 @@ formulario.onsubmit = function(e) {
   if (nombre.length === 0) {
     n.classList.add("error")
   }
-  if (edad < 18 || edad > 120) {
+  // coloque que la edad sea entre  el rango 18 a 120
+  /* if (edad < 18 || edad > 120) {
+    e.classList.add("error")
+  } */
+  if (edad <= 18 || edad >= 120) {
     e.classList.add("error")
   }
 
@@ -30,12 +41,15 @@ if (nombre.length > 0
   }
 }
 
+/* 
+este codigo viene duplicado
+
 var botonBorrar = document.createElement("button")
 botonBorrar.textContent = "Eliminar invitado"
 botonBorrar.id = "boton-borrar"
 var corteLinea = document.createElement("br")
 document.body.appendChild(corteLinea)
-document.body.appendChild(botonBorrar);
+document.body.appendChild(botonBorrar) */
 
 function agregarInvitado(nombre, edad, nacionalidad) {
 
@@ -55,9 +69,13 @@ function agregarInvitado(nombre, edad, nacionalidad) {
 var lista = document.getElementById("lista-de-invitados")
 
 var elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
+// cambie el added por el add
+/* elementoLista.classList.added("elemento-lista") */
+elementoLista.classList.add("elemento-lista")
 lista.appendChild(elementoLista)
 
+/* 
+Este codigo viene duplicado
 var spanNombre = document.createElement("span")
 var inputNombre = document.createElement("input")
 var espacio = document.createElement("br")
@@ -65,7 +83,7 @@ spanNombre.textContent = "Nombre: "
 inputNombre.value = nombre 
 elementoLista.appendChild(spanNombre)
 elementoLista.appendChild(inputNombre)
-elementoLista.appendChild(espacio)
+elementoLista.appendChild(espacio) */
 
 function crearElemento(descripcion, valor) {
 var spanNombre = document.createElement("span")
@@ -88,7 +106,7 @@ botonBorrar.textContent = "Eliminar invitado"
 botonBorrar.id = "boton-borrar"
 var corteLinea = document.createElement("br")
 elementoLista.appendChild(corteLinea)
-elementoLista.appendChild(botonBorrar);
+elementoLista.appendChild(botonBorrar)
 
  botonBorrar.onclick = function() {
 // this.parentNode.style.display = 'none';
